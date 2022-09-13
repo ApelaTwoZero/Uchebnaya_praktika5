@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body style="background-color: beige">
+<div th:each="el : ${post}">
+  <h3>Подробнее о оружии: </h3>
+  <h3 th:text="${el.getName()}"></h3>
+  <p th:text="${el.getBoolets()}"></p>
+  <p th:text="${el.getSpeed()}"></p>
+  <p th:text="${el.getGans_range()}"></p>
+  <p th:text="${el.getDisassembly()}"></p>
+  <a th:href="'/blog-gan/' + ${el.id} + '/edit'">Редактировать</a>
+  <form th:action="'/blog-gan/' + ${el.id} + '/remove'" method="post">
+    <button type="submit" class="btn btn-del">Удалить</button>
+  </form>
+</div>
+</body>

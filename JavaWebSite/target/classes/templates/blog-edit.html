@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование статьи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: beige">
+    <form th:action = "@{/blog/{id}/edit(id=${postUser.id})}" th:object="${postUser}" method="post">
+    <input th:field="*{name}" type="text" th:value="${postUser.getName()}" name="name" placeholder="Введите имя">
+    <div style="color: black" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div><br>
+    <input th:field="*{surname}" type="text" th:value="${postUser.getSurname()}" name="surname" placeholder="Введите фамилию">
+    <div style="color: black" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div><br>
+    <input th:field="*{midlname}" type="text" th:value="${postUser.getMidlname()}" name="midlname" placeholder="Введите отчество">
+    <div style="color: black" th:if="${#fields.hasErrors('midlname')}" th:errors="*{midlname}"></div><br>
+    <input th:field="*{age}" type="number" th:value="${postUser.getAge()}" name="age" placeholder="Введите возраст">
+    <div style="color: black" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div><br>
+    <input th:field="*{growth}" type="number" th:value="${postUser.getGrowth()}" name="growth" placeholder="Введите рост">
+    <div style="color: black" th:if="${#fields.hasErrors('growth')}" th:errors="*{growth}"></div><br>
+    <input th:field="*{weight}" type="number" th:value="${postUser.getWeight()}" name="weight" placeholder="Введите вес">
+    <div style="color: black" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></div><br>
+    <br>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+</body>
+</html>

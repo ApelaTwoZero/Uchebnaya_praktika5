@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body style="background-color: beige">
+<div th:each="el : ${post}">
+  <h3>Подробнее о пользователе: </h3>
+  <h3 th:text="${el.getName()}"></h3>
+  <p th:text="${el.getSurname()}"></p>
+  <p th:text="${el.getMidlname()}"></p>
+  <p th:text="${el.getAge()}"></p>
+  <p th:text="${el.getGrowth()}"></p>
+  <p th:text="${el.getWeight()}"></p>
+  <a th:href="'/blog/' + ${el.id} + '/edit'">Редактировать</a>
+  <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
+    <button type="submit" class="btn btn-del">Удалить</button>
+  </form>
+</div>
+</body>

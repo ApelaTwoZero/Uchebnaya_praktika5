@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Редактирование статьи</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="background-color: beige">
+
+  <form th:action = "@{/blog-gan/{id}/edit(id=${postGan.id})}" th:object="${postGan}" method="post">
+    <input th:field="*{name}" type="text" th:value="${postGan.getName()}" name="name" placeholder="Введите название">
+    <div style="color: black" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div><br>
+    <input th:field="*{boolets}" type="number" th:value="${postGan.getBoolets()}" name="boolets" placeholder="Введите боезапас">
+    <div style="color: black" th:if="${#fields.hasErrors('boolets')}" th:errors="*{boolets}"></div><br>
+    <input th:field="*{speed}" type="number" th:value="${postGan.getSpeed()}" name="speed" placeholder="Введите скорсоть">
+    <div style="color: black" th:if="${#fields.hasErrors('speed')}" th:errors="*{speed}"></div><br>
+    <input th:field="*{gans_range}" type="number" th:value="${postGan.getGans_range()}" name="gans_range" placeholder="Введите дальность">
+    <div style="color: black" th:if="${#fields.hasErrors('gans_range')}" th:errors="*{gans_range}"></div><br>
+    <input th:field="*{disassembly}" type="number" th:value="${postGan.getDisassembly()}" name="disassembly" placeholder="Введите разборку">
+    <div style="color: black" th:if="${#fields.hasErrors('disassembly')}" th:errors="*{disassembly}"></div><br>
+
+    <br>
+    <button type="submit">Сохранить изменения</button>
+  </form>
+
+</body>
+</html>
